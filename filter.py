@@ -3,7 +3,7 @@ class Filter:
     target = None
     value = 0
 
-    def __init__(self, target):
+    def __init__(self, target=None):
         self.set_target(target)
 
     def get_target(self):
