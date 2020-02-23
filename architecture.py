@@ -20,10 +20,7 @@ class Architecture:
         curr_node = self.get_start_node()
 
         while curr_node is not None:
-            display_string += str(curr_node.get_value())
+            display_string += str(curr_node.render())
             curr_node = curr_node.get_target()
 
         print(display_string)
-
-
-
