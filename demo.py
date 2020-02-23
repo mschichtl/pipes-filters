@@ -16,6 +16,8 @@ p1.set_target(f2)
 f2.set_target(p2)
 p2.set_target(f3)
 
+f1.set_value(10)
+
 arc.set_start_node(f1)
 
-arc.render()
+arc.launch()

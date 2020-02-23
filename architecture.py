@@ -1,5 +1,6 @@
 import pipe
 import filter
+import time
 
 
 class Architecture:
@@ -15,12 +16,24 @@ class Architecture:
     def __init__(self, start_node=None):
         self.set_start_node(start_node)
 
-    def render(self):
-        display_string = ""
+    def get_components(self):
+        components = []
         curr_node = self.get_start_node()
 
         while curr_node is not None:
-            display_string += str(curr_node.render())
+            components.append(curr_node)
             curr_node = curr_node.get_target()
 
-        print(display_string)
+        return components
+
+    def render(self):
+        print(''.join(map(lambda x: x.to_text(), self.get_components())))
+
+    def update(self):
+        map(lambda component: component.update(), self.get_components())
+
+    def launch(self):
+        while True:
+            self.render()
+            self.update()
+            time.sleep(0.5)

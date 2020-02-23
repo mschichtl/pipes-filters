@@ -26,14 +26,14 @@ class Filter:
         self.value += value
 
     def push(self, value=1):
-        self.add_value(value)
+        self.get_target().add_value(value)
 
-    def pop(self, value=1):
-        self.target.push(value)
+    def execute(self, value=1):
+        self.push(value)
         self.add_value(-value)
 
-    def render(self):
-        print('(' + self.get_value() + ')')
+    def to_text(self):
+        return '(' + str(self.get_value()) + ')'
 
     def update(self):
-        self.pop()
+        self.execute()
