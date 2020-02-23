@@ -43,6 +43,9 @@ class Component(metaclass=ABCMeta):
             if self.get_value() >= self.get_speed():
                 self.get_target().add_value(self.get_speed())
                 self.add_value(-self.get_speed())
+            else:
+                self.get_target().add_value(self.get_value())
+                self.add_value(-self.get_value())
 
     @abstractmethod
     def to_text(self):
