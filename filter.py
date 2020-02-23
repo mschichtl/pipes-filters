@@ -1,11 +1,10 @@
 class Filter:
 
+    # variable initiation
     target = None
     value = 0
 
-    def __init__(self, target=None):
-        self.set_target(target)
-
+    # getter and setter methods
     def get_target(self):
         return self.target
 
@@ -18,6 +17,11 @@ class Filter:
     def set_value(self, value):
         self.value = value
 
+    # init method
+    def __init__(self, target=None):
+        self.set_target(target)
+
+    # custom methods
     def add_value(self, value):
         self.value += value
 
@@ -30,3 +34,6 @@ class Filter:
 
     def render(self):
         print('(' + self.get_value() + ')')
+
+    def update(self):
+        self.pop()
