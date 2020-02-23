@@ -25,12 +25,11 @@ class Pipe:
     def add_value(self, value):
         self.value += value
 
-    def push(self, value=1):
-        self.get_target().add_value(value)
-
     def execute(self, value=1):
-        self.push(value)
-        self.add_value(-value)
+        if self.get_target() is not None\
+                and self.get_value() > 0:
+            self.get_target().add_value(value)
+            self.add_value(-value)
 
     def to_text(self):
         return '--' + str(self.get_value()) + '--'

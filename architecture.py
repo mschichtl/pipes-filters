@@ -30,7 +30,9 @@ class Architecture:
         print(''.join(map(lambda x: x.to_text(), self.get_components())))
 
     def update(self):
-        map(lambda component: component.update(), self.get_components())
+        #map(lambda component: component.update(), self.get_components())
+        for component in self.get_components()[::-1]:
+            component.update()
 
     def launch(self):
         while True:
