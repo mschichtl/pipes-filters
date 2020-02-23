@@ -4,11 +4,11 @@ from filter import Filter
 
 arc = Architecture()
 
-f1 = Filter()
+f1 = Filter(speed=3)
 f2 = Filter()
 f3 = Filter()
 
-p1 = Pipe()
+p1 = Pipe(speed=2)
 p2 = Pipe()
 
 f1.set_target(p1)
