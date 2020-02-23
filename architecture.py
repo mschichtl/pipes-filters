@@ -30,12 +30,14 @@ class Architecture:
         print(''.join(map(lambda x: x.to_text(), self.get_components())))
 
     def update(self):
-        #map(lambda component: component.update(), self.get_components())
         for component in self.get_components()[::-1]:
             component.update()
 
     def launch(self):
         while True:
             self.render()
+            if sum([c.get_value() for c in self.get_components()[:-1]]) == 0:
+                break
+
             self.update()
             time.sleep(0.5)
